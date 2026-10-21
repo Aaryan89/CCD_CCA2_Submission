@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docs-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: docs-site
+  template:
+    metadata:
+      labels:
+        app: docs-site
+    spec:
+      containers:
+      - name: docs-site
+        image: your-dockerhub-username/docs-site:latest
+        ports:
+        - containerPort: 80
