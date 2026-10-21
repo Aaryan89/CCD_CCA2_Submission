@@ -17,7 +17,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t kaaryan89/docs-site:latest .'
+                sh 'docker build -t harshadpardhi/docs-site:latest .'
             }
         }
 
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub-creds', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
                     sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
-                    sh 'docker push kaaryan89/docs-site:latest'
+                    sh 'docker push harshadpardhi/docs-site:latest'
                 }
             }
         }

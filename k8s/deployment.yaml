@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: docs-site
-        image: your-dockerhub-username/docs-site:latest
+        image: harshadpardhi/docs-site:latest
         ports:
         - containerPort: 80
